@@ -9,7 +9,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background-color: #000080;
+    background-color: #010A44;
     background-image: 
       repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255,255,255,0.03) 30px, rgba(255,255,255,0.03) 31px),
       repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(255,255,255,0.03) 30px, rgba(255,255,255,0.03) 31px);
@@ -21,7 +21,7 @@
   .page-wrapper {
     max-width: 760px;
     margin: 0 auto;
-    background: #000080;
+    background: #010A44;
     border-left: 3px ridge #c0c0c0;
     border-right: 3px ridge #c0c0c0;
     padding-bottom: 20px;
@@ -307,7 +307,8 @@
     display: none; position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0,0,0,0.5); z-index: 1000;
-    align-items: center; justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px; justify-content: center;
   }
   .popup-overlay.active { display: flex; }
   .win98-dialog { background: #c0c0c0; border: 3px outset #ffffff; min-width: 280px; max-width: 360px; }
@@ -333,6 +334,10 @@
 </style>
 </head>
 <body>
+
+  <div style="background:#010A44; text-align:center; padding: 8px; border-bottom: 2px solid #ffff00; font-family: Arial, sans-serif; font-size: 12px;">
+  <a href="https://www.sarahclawrence.com" style="color:#ffff00; font-weight:bold; text-decoration:none;">🚪Take me back to 2026 → </a>
+</div>
 
 <div class="popup-overlay" id="popup">
   <div class="win98-dialog">
