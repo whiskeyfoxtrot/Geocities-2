@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sarah's Design Emporium - Geocities Edition</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #000080;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255,255,255,0.03) 30px, rgba(255,255,255,0.03) 31px),
+      repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(255,255,255,0.03) 30px, rgba(255,255,255,0.03) 31px);
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+    color: #ffff00;
+    min-height: 100vh;
+  }
+
+  .page-wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    background: #000080;
+    border-left: 3px ridge #c0c0c0;
+    border-right: 3px ridge #c0c0c0;
+    padding-bottom: 20px;
+  }
+
+  .top-bar {
+    background: #c0c0c0;
+    padding: 3px 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 2px solid #808080;
+  }
+  .top-bar span { font-size: 11px; color: #000; font-family: Arial, sans-serif; }
+  .top-bar .dot { color: #ff0000; font-size: 14px; }
+
+  .marquee-banner {
+    background: #ff00ff;
+    color: #ffff00;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 2px solid #ff88ff;
+    border-bottom: 2px solid #aa00aa;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 18s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .site-header {
+    background: linear-gradient(180deg, #000066, #000099, #000066);
+    padding: 16px 10px 10px;
+    text-align: center;
+    border-bottom: 4px double #ffff00;
+  }
+
+  .site-title {
+    font-size: 38px;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 3px 3px 0 #ff00ff, -1px -1px 0 #0000ff;
+    letter-spacing: 2px;
+    font-family: Impact, Arial Black, sans-serif;
+    text-transform: uppercase;
+  }
+
+  .site-subtitle {
+    font-size: 13px;
+    color: #ff99ff;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .rainbow-rule {
+    height: 6px;
+    background: linear-gradient(90deg, #ff0000,#ff8800,#ffff00,#00ff00,#00ffff,#0088ff,#ff00ff,#ff0000);
+    margin: 8px 0;
+    border: none;
+  }
+
+  .counter-bar {
+    background: #000033;
+    text-align: center;
+    padding: 6px;
+    font-size: 12px;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    border-bottom: 2px solid #003300;
+  }
+  .counter-digits {
+    display: inline-block;
+    background: #003300;
+    color: #00ff00;
+    padding: 2px 8px;
+    border: 1px inset #00aa00;
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .nav-bar {
+    background: #800080;
+    padding: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    border-bottom: 3px ridge #ff00ff;
+  }
+  .nav-bar a {
+    background: #ffff00;
+    color: #800080;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 3px 10px;
+    text-decoration: none;
+    border: 2px outset #ffff88;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .nav-bar a:hover { background: #ff8800; color: #fff; border-style: inset; }
+  .nav-bar a:active { border-style: inset; }
+
+  .main-layout { display: flex; gap: 0; }
+
+  .sidebar {
+    width: 160px;
+    min-width: 160px;
+    background: #000044;
+    border-right: 3px ridge #0000ff;
+    padding: 10px 8px;
+  }
+
+  .sidebar-section {
+    background: #000066;
+    border: 2px inset #0000aa;
+    padding: 8px 6px;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-title {
+    font-size: 11px;
+    font-weight: bold;
+    color: #00ffff;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid #0066ff;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    font-family: Arial, sans-serif;
+  }
+
+  .sidebar ul { list-style: none; padding: 0; }
+  .sidebar ul li { padding: 2px 0; font-size: 12px; color: #88ddff; font-family: Arial, sans-serif; }
+  .sidebar ul li::before { content: "» "; color: #ff00ff; }
+
+  .blink { animation: blink 0.8s step-end infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  .guestbook-btn {
+    display: block;
+    background: #ff0000;
+    color: #ffff00;
+    font-weight: bold;
+    font-size: 11px;
+    text-align: center;
+    padding: 5px;
+    border: 2px outset #ff8888;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    margin-top: 6px;
+  }
+  .guestbook-btn:hover { background: #cc0000; border-style: inset; }
+
+  .award-box {
+    text-align: center;
+    padding: 6px;
+    border: 2px dashed #ffff00;
+    font-size: 10px;
+    color: #ffdd00;
+    margin-top: 8px;
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+  }
+
+  .main-content { flex: 1; padding: 12px; min-width: 0; }
+
+  .section-box {
+    background: #000033;
+    border: 3px ridge #ffff00;
+    padding: 12px;
+    margin-bottom: 14px;
+  }
+
+  .section-heading {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffff00;
+    text-shadow: 1px 1px 0 #ff8800;
+    font-family: Impact, Arial, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px dashed #ffff00;
+  }
+
+  .intro-text { font-size: 13px; color: #ccffff; line-height: 1.6; font-family: Arial, sans-serif; }
+  .intro-text strong { color: #ffff00; }
+  .intro-text a { color: #ffff00; font-weight: bold; }
+
+  .about-img-placeholder {
+    float: right;
+    width: 90px;
+    height: 110px;
+    background: #002244;
+    border: 3px inset #0088ff;
+    margin: 0 0 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: #00aaff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    line-height: 1.3;
+    overflow: hidden;
+  }
+  .about-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+  .epitaph {
+    background: #330033;
+    border: 2px solid #ff00ff;
+    padding: 8px;
+    font-size: 12px;
+    color: #ff99ff;
+    font-style: italic;
+    text-align: center;
+    margin-top: 8px;
+    font-family: 'Times New Roman', serif;
+    clear: both;
+  }
+
+  .skills-table { width: 100%; border-collapse: collapse; font-size: 12px; font-family: Arial, sans-serif; }
+  .skills-table th { background: #ff00ff; color: #ffff00; padding: 4px 8px; font-weight: bold; border: 1px solid #ff88ff; text-align: left; }
+  .skills-table td { padding: 4px 8px; border: 1px solid #4444aa; color: #ccffff; vertical-align: top; }
+  .skills-table tr:nth-child(even) td { background: #000066; }
+  .skills-table tr:nth-child(odd) td { background: #000044; }
+
+  .star { color: #ffff00; font-size: 10px; }
+
+  .fun-facts { columns: 2; gap: 10px; font-size: 12px; color: #88ffcc; font-family: Arial, sans-serif; line-height: 1.8; list-style: none; padding: 0; }
+  .fun-facts li { break-inside: avoid; margin-bottom: 2px; }
+  .fun-facts li::before { content: "☆ "; color: #ffff00; }
+
+  .badges-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .badge88 {
+    width: 88px; height: 31px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: bold; text-align: center;
+    border: 1px solid rgba(255,255,255,0.3);
+    cursor: default; line-height: 1.2;
+    font-family: Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  .scrolltext {
+    background: #000; border: 2px inset #888; padding: 6px;
+    height: 70px; overflow-y: scroll;
+    font-size: 11px; color: #00ff00;
+    font-family: 'Courier New', monospace; line-height: 1.6;
+  }
+
+  .site-footer {
+    background: #000033; border-top: 4px double #ffff00;
+    text-align: center; padding: 12px;
+    font-size: 11px; color: #888888; font-family: Arial, sans-serif;
+  }
+  .site-footer a { color: #00aaff; }
+
+  .spinning-star { display: inline-block; animation: spin 2s linear infinite; font-size: 20px; }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .pulse { animation: pulse 1.5s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+  .under-construction {
+    background: repeating-linear-gradient(45deg, #ffcc00 0px, #ffcc00 10px, #222 10px, #222 20px);
+    padding: 4px 0; text-align: center;
+    font-size: 11px; font-weight: bold;
+    color: #ffcc00; font-family: Arial, sans-serif; text-shadow: 1px 1px 0 #000;
+  }
+
+  .popup-overlay {
+    display: none; position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5); z-index: 1000;
+    align-items: center; justify-content: center;
+  }
+  .popup-overlay.active { display: flex; }
+  .win98-dialog { background: #c0c0c0; border: 3px outset #ffffff; min-width: 280px; max-width: 360px; }
+  .win98-titlebar {
+    background: linear-gradient(90deg, #000080, #1084d0);
+    color: white; padding: 3px 6px; font-size: 12px;
+    font-family: Arial, sans-serif; font-weight: bold;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .win98-close {
+    background: #c0c0c0; border: 2px outset #fff;
+    font-size: 11px; font-weight: bold; cursor: pointer;
+    padding: 0 4px; font-family: Arial, sans-serif; color: #000; line-height: 16px;
+  }
+  .win98-close:active { border-style: inset; }
+  .win98-body { padding: 14px; font-family: Arial, sans-serif; font-size: 12px; color: #000; line-height: 1.5; }
+  .win98-ok {
+    display: block; margin: 8px auto 0;
+    background: #c0c0c0; border: 2px outset #fff;
+    padding: 4px 24px; font-family: Arial, sans-serif; font-size: 12px; cursor: pointer;
+  }
+  .win98-ok:active { border-style: inset; }
+</style>
+</head>
+<body>
+
+<div class="popup-overlay" id="popup">
+  <div class="win98-dialog">
+    <div class="win98-titlebar">
+      <span>Welcome to my page!!!</span>
+      <button class="win98-close" onclick="document.getElementById('popup').classList.remove('active')">X</button>
+    </div>
+    <div class="win98-body">
+      <p>✨ <strong>Welcome, Visitor!</strong> ✨</p><br>
+      <p>You are visitor number <strong>#0042069</strong> to this site!</p><br>
+      <p>This page is BEST VIEWED in Netscape Navigator 4.0 at 800x600 resolution.</p><br>
+      <p>Please sign my <strong>guestbook</strong> before you leave! 💌</p>
+      <button class="win98-ok" onclick="document.getElementById('popup').classList.remove('active')">OK</button>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrapper">
+
+  <div class="top-bar">
+    <span class="dot">●</span>
+    <span class="dot" style="color:#ffcc00;">●</span>
+    <span class="dot" style="color:#00bb00;">●</span>
+    <span style="flex:1; text-align:center;">http://www.sarahclawrence.com/geocities/</span>
+    <span>🔒</span>
+  </div>
+
+  <div class="marquee-banner">
+    <div class="marquee-inner">
+      &nbsp;&nbsp;&nbsp;⭐ WELCOME TO SARAH'S DESIGN EMPORIUM ⭐ &nbsp;&nbsp;&nbsp; ✨ MULTIDISCIPLINARY DESIGNER · ATLANTA, GA ✨ &nbsp;&nbsp;&nbsp; 🌟 BRANDING · WEB · PLACEMAKING · RISO PRINTING · WEIRD TECH PROJECTS 🌟 &nbsp;&nbsp;&nbsp; 💌 SIGN MY GUESTBOOK 💌 &nbsp;&nbsp;&nbsp; 🚧 SITE UNDER CONSTRUCTION 🚧 &nbsp;&nbsp;&nbsp; ⭐ WELCOME TO SARAH'S DESIGN EMPORIUM ⭐
+    </div>
+  </div>
+
+  <div class="site-header">
+    <div>
+      <span class="spinning-star">✦</span>
+      <span class="site-title"> Sarah's Design Emporium </span>
+      <span class="spinning-star">✦</span>
+    </div>
+    <div class="site-subtitle">∼*~ Graphic Design · Art Direction · General Weirdness · Atlanta, GA ~*∼</div>
+    <div style="margin-top: 8px; font-size: 20px; letter-spacing: 4px;">⚡ 💾 🌐 🎨 💡</div>
+    <hr class="rainbow-rule">
+    <div style="font-size: 11px; color: #99ffff; font-family: Arial, sans-serif;">
+      Last Updated: <span style="color: #ffff00;">June 11, 2001</span> &nbsp;|&nbsp; Best viewed in <span style="color: #ffff00;">Netscape 4.7</span> &nbsp;|&nbsp; 800x600 resolution
+    </div>
+  </div>
+
+  <div class="counter-bar">
+    You are visitor # &nbsp;<span class="counter-digits">0042069</span>&nbsp; — Welcome!!!
+  </div>
+
+  <div class="nav-bar">
+    <a href="https://www.sarahclawrence.com/portfolio" target="_top">[My Work]</a>
+    <a href="https://www.sarahclawrence.com/services" target="_top">[Services]</a>
+    <a href="https://www.sarahclawrence.com/about" target="_top">[About Me]</a>
+    <a href="https://www.sarahclawrence.com/shop" target="_top">[Shop!!]</a>
+    <a href="https://www.sarahclawrence.com/newsletter" target="_top">[Newsletter]</a>
+    <a href="https://www.sarahclawrence.com/experiments" target="_top">[Experiments]</a>
+    <a href="https://www.sarahclawrence.com/hello" target="_top">[Contact Me]</a>
+  </div>
+
+  <div class="main-layout">
+
+    <div class="sidebar">
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">Quick Links</div>
+        <ul>
+          <li><a href="https://www.sarahclawrence.com/portfolio" target="_top" style="color:#88ddff; text-decoration:none;">My Portfolio</a></li>
+          <li><a href="https://www.youtube.com/watch?v=JiBJzccgOx8" target="_blank" style="color:#88ddff; text-decoration:none;">TEDxUGA Talk</a></li>
+          <li><a href="https://www.sarahclawrence.com/living-infographics" target="_top" style="color:#88ddff; text-decoration:none;">Living Infographics</a></li>
+          <li><a href="https://sonifier.sarahclawrence.com" target="_blank" style="color:#88ddff; text-decoration:none;">ATL Bus Sonifier</a></li>
+          <li><a href="https://www.sarahclawrence.com/shop/p/urbanism-field-kit" target="_top" style="color:#88ddff; text-decoration:none;">Urbanism Kit</a></li>
+          <li><a href="https://www.sarahclawrence.com/newsletter" target="_top" style="color:#88ddff; text-decoration:none;">Newsletter</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">About Me!!</div>
+        <div style="font-size: 11px; color: #aaddff; font-family: Arial, sans-serif; line-height: 1.5;">
+          Name: Sarah L.<br>
+          Location: ATL, GA<br>
+          Job: Designer 🎨<br>
+          Sign: ♊ (probs)<br>
+          Status: <span class="blink" style="color:#00ff00;">● Online</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-title">My Mood Today</div>
+        <div style="text-align: center; font-size: 24px;" class="pulse">🌱</div>
+        <div style="font-size: 10px; color: #88aaff; text-align: center; font-family: Arial, sans-serif; margin-top: 4px;">Currently: growing things</div>
+      </div>
+
+      <a class="guestbook-btn" href="https://www.sarahclawrence.com/hello" target="_top">📖 Sign My Guestbook!!</a>
+
+      <div class="award-box">
+        🏆<br>
+        <strong style="color:#ffdd00;">SITE OF THE WEEK</strong><br>
+        <span style="font-size:9px;">Design Emporium Online</span><br>
+        <span style="font-size:9px;color:#aaa;">Geocities Award 2001</span>
+      </div>
+
+      <div style="margin-top: 10px; text-align: center;">
+        <div style="font-size: 10px; color: #888; font-family: Arial, sans-serif; margin-bottom: 4px;">Web Rings:</div>
+        <div style="font-size: 9px; color: #aaaaff; font-family: Arial, sans-serif; line-height: 1.8;">
+          « Atlanta Designers »<br>
+          « Riso Printers »<br>
+          « Maker Weirdos »
+        </div>
+      </div>
+
+    </div>
+
+    <div class="main-content">
+
+      <div class="section-box">
+        <div class="section-heading">🌟 Hi!! I'm Sarah!! 🌟</div>
+        <div class="about-img-placeholder">
+          <img src="https://images.squarespace-cdn.com/content/v1/659719bf8a72472c96f74a48/f7e60cf2-18c9-4784-9676-d83b991bb7b9/ParallaxTest_2+FRONT.png" alt="Sarah Lawrence" onerror="this.parentElement.innerHTML='[photo loading...<br>please wait]'">
+        </div>
+        <div class="intro-text">
+          Hey there!! I'm <strong>Sarah</strong>, a multidisciplinary graphic designer and art director based in <strong>Atlanta, Georgia</strong>. 🍑<br><br>
+          I run a tiny studio called <strong>Design Emporium</strong> where I specialize in branding, web design, and all things <strong>wonderful and weird</strong>. I'm the person you call when you need to inject a little weirdness into something traditionally pretty dry!!<br><br>
+          Want to work together?? 👉 <a href="https://www.sarahclawrence.com/hello" target="_top">Get in touch!!</a>
+        </div>
+        <div class="epitaph">
+          "I just wanted to see if it would work." — my epitaph, probably
+        </div>
+      </div>
+
+      <div class="section-box">
+        <div class="section-heading">⚡ My Skillz (Very Many!!) ⚡</div>
+        <table class="skills-table">
+          <tr>
+            <th>Skill</th>
+            <th>Level</th>
+            <th>Formats</th>
+          </tr>
+          <tr>
+            <td>Brand Identity</td>
+            <td><span class="star">★★★★★</span></td>
+            <td>Logos, systems, guidelines</td>
+          </tr>
+          <tr>
+            <td>Web Design</td>
+            <td><span class="star">★★★★★</span></td>
+            <td>Squarespace, HTML, CSS, JS</td>
+          </tr>
+          <tr>
+            <td>Civic / Placemaking</td>
+            <td><span class="star">★★★★☆</span></td>
+            <td>Installations, maps, murals</td>
+          </tr>
+          <tr>
+            <td>Riso Printing</td>
+            <td><span class="star">★★★★☆</span></td>
+            <td>Color sep, zines, posters</td>
+          </tr>
+          <tr>
+            <td>Weird Tech Projects</td>
+            <td><span class="star">★★★★☆</span></td>
+            <td>Raspberry Pi, receipt printers!!</td>
+          </tr>
+          <tr>
+            <td>Illustration</td>
+            <td><span class="star">★★★☆☆</span></td>
+            <td>Editorial, digital, hand-drawn</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section-box">
+        <div class="section-heading">☆ Fun Facts About Me!! ☆</div>
+        <ul class="fun-facts">
+          <li>Based in Atlanta, GA 🍑</li>
+          <li>I own a Risograph printer!!</li>
+          <li>I gave a TEDx talk in 2013</li>
+          <li>I grow my own vegetables</li>
+          <li>Garden coaching business!!</li>
+          <li>I build stuff with Raspberry Pi</li>
+          <li>Huge fan of thermal printers</li>
+          <li>Made a musical ATL bus app</li>
+          <li>I love estate sales + thrift</li>
+          <li>K-beauty skincare devotee</li>
+          <li>Avid reader + music fan</li>
+          <li>Dog? Cat? Plants. I choose plants</li>
+        </ul>
+      </div>
+
+      <div class="section-box">
+        <div class="section-heading">📖 Recent Guestbook Entries!!</div>
+        <div class="scrolltext">
+          xXDesignLuvr2001Xx: omg ur site is so kewl!! i luv ur logos!!<br>
+          ATLcreative: sarah ur work is amazin keep it up!! 🎨🎨<br>
+          RisoGang: finally someone who gets riso printing!!!!<br>
+          CivicNerdATL: the living infographics r genius omg<br>
+          MidtownMike: saw ur crosswalk mural!!! so good!!<br>
+          PlacemakingQueen: ur the coolest designer in ATL fr fr<br>
+          ThermalPrinterFan: the receipt printer kiosk is SO CUTE<br>
+          GardenGremlin: teach me to grow tomatoes pleaseeeee<br>
+          TEDxWatcher2013: ur talk was so inspiring!!!!!<br>
+          DesignEmporium_Fan: cant wait to see what weird project is next!!
+        </div>
+      </div>
+
+      <div class="section-box">
+        <div class="section-heading">🔗 Cool Sites I Like!!</div>
+        <div class="badges-row">
+          <div class="badge88" style="background:#000080; color:#ffff00; border-color:#0000ff;">Design<br>Emporium</div>
+          <div class="badge88" style="background:#800000; color:#ffff88; border-color:#ff0000;">ATL<br>Maker</div>
+          <div class="badge88" style="background:#004400; color:#00ff88; border-color:#00aa00;">Riso<br>Printers</div>
+          <div class="badge88" style="background:#440044; color:#ff88ff; border-color:#ff00ff;">Civic<br>Design</div>
+          <div class="badge88" style="background:#003333; color:#00ffff; border-color:#00aaaa;">ATL<br>Sonifier</div>
+          <div class="badge88" style="background:#330000; color:#ffaa44; border-color:#ff8800;">Garden<br>Coach</div>
+        </div>
+      </div>
+
+      <div class="under-construction">
+        🚧 &nbsp; MORE PAGES COMING SOON — PORTFOLIO, SHOP, EXPERIMENTS &nbsp; 🚧
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer">
+    <div style="font-size: 14px; color: #ffff00; margin-bottom: 6px;">~ * ~ Sarah Lawrence · Design Emporium · Atlanta, GA ~ * ~</div>
+    <hr class="rainbow-rule" style="margin: 6px 0;">
+    <div>
+      Copyright © 2001 Sarah Lawrence · All Rights Reserved · <a href="https://www.sarahclawrence.com/hello" target="_top">Email Me</a><br>
+      <span style="font-size: 10px; color: #666;">This page was created with ❤ and too much Mountain Dew · Geocities / Neighborhood: SiliconValley</span>
+    </div>
+    <div style="margin-top: 8px; font-size: 18px; letter-spacing: 6px;">★ ★ ★</div>
+  </div>
+
+</div>
+
+<script>
+  setTimeout(function() {
+    document.getElementById('popup').classList.add('active');
+  }, 1200);
+</script>
+</body>
+</html>
